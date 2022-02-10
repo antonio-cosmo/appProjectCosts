@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from '../../../img/costs_logo.png'
-import {Container} from '../Container';
+import {Container} from '../../../styles/Container';
 import { NavBar } from "./style";
 export function Header() {
   return (
