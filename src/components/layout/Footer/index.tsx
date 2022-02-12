@@ -16,6 +16,5 @@ export function Footer() {
         </ul>
         <p><span>Costs</span> &copy; 2022 </p>
       </Container>
-
   )
 }

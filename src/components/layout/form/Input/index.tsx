@@ -1,23 +1,28 @@
-import {Container} from './style';
+import { FormEvent } from 'react';
+import { Container } from './style';
 
-type InputProps ={
-  type:string, 
-  text:string, 
-  name:string,
-  placeholder:string,
-  // handleOnChange:() => void, 
-  // value:string
-
+type InputProps = {
+  type: string,
+  text: string,
+  name: string,
+  placeholder: string,
+  handleOnChange: (e: FormEvent) => void,
+  value: string,
 }
-export function Input({ type, text, name, placeholder}:InputProps) {
+
+export function Input({ type, text, name, placeholder, handleOnChange, value }: InputProps) {
   return (
     <Container>
-      <label htmlFor={name}>{text}</label>
+      <label htmlFor={name}>
+        {text}
+      </label>
       <input
         type={type}
         name={name}
         id={name}
         placeholder={placeholder}
+        onChange={handleOnChange}
+        value={value}
       />
     </Container>
   )
