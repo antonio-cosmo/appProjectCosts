@@ -1,11 +1,30 @@
 import styled from 'styled-components';
 
 export const NavBar = styled.nav`
-  width: 100%;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
   background-color: #222;
   padding: 1em;
+
+  a{
+    text-decoration: none;
+    p{
+      font-size: 32px;
+      font-style: italic;
+      font-weight: bold;
+      color: #fff;
+
+      span{
+        text-transform: uppercase;
+        font-size: 50px;
+      }
+      img{
+        width: 50px;
+      }
+    }
+    
+  }
+  
   ul{
     display: flex;
     list-style: none;

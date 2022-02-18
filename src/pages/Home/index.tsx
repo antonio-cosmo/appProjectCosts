@@ -6,7 +6,7 @@ export function Home() {
   return (
     <Container>
       <h1>
-        Bem-vindo ao <span>Costs</span>
+        Bem-vindo ao <span>Coins</span>
       </h1>
       <p>Comece a gerenciar os seus projetos agora mesmo</p>
       <LinkButton 

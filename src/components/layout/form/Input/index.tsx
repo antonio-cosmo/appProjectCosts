@@ -6,11 +6,11 @@ type InputProps = {
   text: string,
   name: string,
   placeholder: string,
-  handleOnChange: (e: FormEvent) => void,
+  handleOnChange: (e: HTMLInputElement) => void,
   value: string,
 }
 
-export function Input({ type, text, name, placeholder, handleOnChange, value }: InputProps) {
+export function Input({ type, text, name, placeholder, handleOnChange, value}: InputProps) {
   return (
     <Container>
       <label htmlFor={name}>
@@ -21,7 +21,7 @@ export function Input({ type, text, name, placeholder, handleOnChange, value }: 
         name={name}
         id={name}
         placeholder={placeholder}
-        onChange={handleOnChange}
+        onChange={(event) => handleOnChange(event.target)}
         value={value}
       />
     </Container>

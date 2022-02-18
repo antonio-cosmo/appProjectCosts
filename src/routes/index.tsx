@@ -3,7 +3,7 @@ import { Home } from '../pages/Home';
 import { Company } from '../pages/Company';
 import { Contact } from '../pages/Contact';
 import { NewProject } from '../pages/NewProject';
-import { Project } from '../pages/Project';
+import { Projects } from '../pages/Projects';
 
 export function AppRoutes() {
   return (
@@ -12,7 +12,7 @@ export function AppRoutes() {
       <Route path='/company' element={<Company />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/newproject' element={<NewProject />} />
-      <Route path='/project' element={<Project />} />
+      <Route path='/projects' element={<Projects />} />
     </Routes>
   )
 }

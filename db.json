@@ -10,6 +10,17 @@
       "cost": 0,
       "services": [],
       "id": 2
+    },
+    {
+      "name": "teste 3",
+      "budget": "1000",
+      "category": {
+        "id": "2",
+        "name": "Densenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 5
     }
   ],
   "categories": [

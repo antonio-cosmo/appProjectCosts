@@ -2,7 +2,7 @@ import { Input } from '../layout/form/Input';
 import { Select } from '../layout/form/Select';
 import { Form } from './style';
 import { SubmitButton } from '../layout/form/SubmitButton';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 type ProjectFormProps = {
   btnText: string,
@@ -44,26 +44,28 @@ export function ProjectForm({ btnText, handleCreatePost }: ProjectFormProps) {
     )
   }, []);
 
-  const handleChange = (e: FormEvent) => {
+  const handleChange = useCallback((el: HTMLInputElement) => {
 
-    const el = e.target as HTMLInputElement;
+    setProject(prevProject => (
+      { ...prevProject, [el.name]: el.value }
+    ));
 
-    setProject({ ...project, [el.name]: el.value });
+  }, []);
 
-  };
 
-  const handleCategory = (e: FormEvent) => {
+  const handleCategory = useCallback((el: HTMLSelectElement) => {
 
-    const el = e.target as HTMLSelectElement;
+    setProject(prevProject => (
+      {
+        ...prevProject,
+        category: {
+          id: el.value,
+          name: el.options[el.selectedIndex].text
+        }
+      })
+    );
 
-    setProject({
-      ...project, category: {
-        id: el.value,
-        name: el.options[el.selectedIndex].text
-      }
-    });
-
-  };
+  }, []);
 
   const submit = (e: FormEvent) => {
 

@@ -7,14 +7,14 @@ export function Header() {
     <NavBar>
       <Container>
         <Link to="/">
-          <img src={logo} alt="Logo" />
+         <p> <span>c</span><img src={logo} alt="Logo" />ins </p>
         </Link>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/project">Projetos</Link>
+            <Link to="/projects">Projetos</Link>
           </li>
           <li>
             <Link to="/company">Empresa</Link>

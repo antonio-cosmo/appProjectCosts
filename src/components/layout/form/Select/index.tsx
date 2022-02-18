@@ -4,7 +4,7 @@ import { Container } from './style';
 type InputProps = {
   text: string,
   name: string,
-  handleOnChange: (e: FormEvent) => void,
+  handleOnChange: (e: HTMLSelectElement) => void,
   value: string,
   options: Option[],
 }
@@ -23,7 +23,7 @@ export function Select({ text, name, options, handleOnChange, value }: InputProp
       <select
         name={name}
         id={name}
-        onChange={handleOnChange}
+        onChange={(event) => handleOnChange(event.target)}
         value={value || ''}
       >
         <option>Selecione uma opção</option>

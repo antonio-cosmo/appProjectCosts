@@ -33,7 +33,7 @@ export function NewProject() {
     ).then(
       (data) => {
         console.log(data);
-        navigate('/project');
+        navigate('/projects', {state:'Projeto criado com sucesso'});
       }
     ).catch(
       e => console.log('error')
