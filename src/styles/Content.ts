@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 1024px;
+export const Content = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  flex-wrap: wrap;
 
   &.mini_height{
     min-height: 75%;
@@ -13,6 +13,8 @@ export const Container = styled.div`
 
   &.start{
     justify-content: flex-start;
+    flex-wrap: wrap;
+
   }
   &.column{
     flex-direction: column;

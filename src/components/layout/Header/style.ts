@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  background-color: #222;
+`;
 export const NavBar = styled.nav`
   width: 100vw;
   display: flex;
-  background-color: #222;
+  justify-content: space-between;
+  align-items: center;
   padding: 1em;
 
   a{

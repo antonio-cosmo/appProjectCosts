@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Container } from './styles/Container'
+import { Container } from './styles/Content'
 import { Header } from './components/layout/Header';
 import { AppRoutes } from './routes';
 import { GlobalStyle } from './styles/GlobalStyle';

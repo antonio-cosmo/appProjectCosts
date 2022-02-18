@@ -18,7 +18,7 @@ type Project = {
   cost: number,
   services: string[],
   name: string,
-  value: string,
+  budget: string,
   category: {
     id: string,
     name: string,
@@ -83,7 +83,7 @@ export function ProjectForm({ btnText, handleCreatePost }: ProjectFormProps) {
         text="Nome do projeto"
         placeholder="Insira o nome do projeto"
         handleOnChange={handleChange}
-        value={project.value}
+        value={project.name}
       />
       <Input
         type="number"
@@ -91,7 +91,7 @@ export function ProjectForm({ btnText, handleCreatePost }: ProjectFormProps) {
         text="Orçamento do projeto"
         placeholder="Insira o orçamento total"
         handleOnChange={handleChange}
-        value={project.value}
+        value={project.budget}
       />
       <Select
         name="category_id"
