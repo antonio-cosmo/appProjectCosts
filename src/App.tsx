@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Container } from './styles/Content'
+import { Content } from './styles/Content'
 import { Header } from './components/layout/Header';
 import { AppRoutes } from './routes';
 import { GlobalStyle } from './styles/GlobalStyle';
@@ -9,9 +9,9 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Container>
+      <Content>
         <AppRoutes />
-      </Container>
+      </Content>
       <GlobalStyle />
       <Footer />
     </BrowserRouter>

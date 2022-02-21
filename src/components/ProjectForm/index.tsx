@@ -3,10 +3,12 @@ import { Select } from '../layout/form/Select';
 import { Form } from './style';
 import { SubmitButton } from '../layout/form/SubmitButton';
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { Api } from '../../services/api';
 
 type ProjectFormProps = {
   btnText: string,
-  handleCreatePost: (project: Project) => void,
+  handleSubmit: (project: Project) => Promise<void>,
+  projectData?: Project,
 }
 
 type Category = {
@@ -15,8 +17,9 @@ type Category = {
 }
 
 type Project = {
+  id: string
   cost: number,
-  services: string[],
+  services: Service[],
   name: string,
   budget: string,
   category: {
@@ -24,24 +27,26 @@ type Project = {
     name: string,
   },
 }
-export function ProjectForm({ btnText, handleCreatePost }: ProjectFormProps) {
+
+type Service ={
+  id:string, 
+  name:string, 
+  cost:string, 
+  description:string, 
+}
+export function ProjectForm({ btnText, handleSubmit, projectData }: ProjectFormProps) {
 
   const [categories, setCategories] = useState<Category[]>([]);
-  const [project, setProject] = useState<Project>({} as Project);
-
+  const [project, setProject] = useState<Project>(()=>{
+    if(projectData) return projectData;
+    return ({} as Project)
+  });
+ 
   useEffect(() => {
-    fetch("http://localhost:5000/categories", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(
-      res => res.json()
-    ).then(
-      data => setCategories(data)
-    ).catch(
-      e => console.log('error')
-    )
+
+    Api.get('categories').then(res => {
+      setCategories(res.data)
+    })
   }, []);
 
   const handleChange = useCallback((el: HTMLInputElement) => {
@@ -67,11 +72,10 @@ export function ProjectForm({ btnText, handleCreatePost }: ProjectFormProps) {
 
   }, []);
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
 
     e.preventDefault();
-
-    handleCreatePost(project);
+    await handleSubmit(project);
 
   };
 

@@ -1,8 +1,8 @@
 {
   "projects": [
     {
-      "name": "teste 1",
-      "budget": "1000",
+      "name": "Projeto teste",
+      "budget": "20000",
       "category": {
         "id": "1",
         "name": "Infra"
@@ -13,10 +13,10 @@
     },
     {
       "name": "teste 2",
-      "budget": "4000",
+      "budget": "20000",
       "category": {
-        "id": "2",
-        "name": "Densenvolvimento"
+        "id": "1",
+        "name": "Infra"
       },
       "cost": 0,
       "services": [],
@@ -24,11 +24,11 @@
     },
     {
       "name": "teste 3",
+      "budget": "3000",
       "category": {
         "id": "3",
         "name": "Design"
       },
-      "budget": "1000",
       "cost": 0,
       "services": [],
       "id": 3
@@ -39,32 +39,21 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "budget": "2500",
+      "budget": "3000",
       "cost": 0,
       "services": [],
       "id": 4
     },
     {
       "name": "teste 5",
-      "budget": "6000",
+      "budget": "30000",
       "category": {
-        "id": "2",
-        "name": "Densenvolvimento"
+        "id": "1",
+        "name": "Infra"
       },
       "cost": 0,
       "services": [],
       "id": 5
-    },
-    {
-      "name": "teste 6",
-      "budget": "2000",
-      "category": {
-        "id": "2",
-        "name": "Densenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 6
     }
   ],
   "categories": [

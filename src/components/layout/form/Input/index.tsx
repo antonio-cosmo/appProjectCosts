@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from './style';
 
 type InputProps = {
@@ -11,6 +11,8 @@ type InputProps = {
 }
 
 export function Input({ type, text, name, placeholder, handleOnChange, value}: InputProps) {
+ const [valueInput, setValueInput] = useState(()=> value)
+
   return (
     <Container>
       <label htmlFor={name}>
@@ -21,8 +23,12 @@ export function Input({ type, text, name, placeholder, handleOnChange, value}: I
         name={name}
         id={name}
         placeholder={placeholder}
-        onChange={(event) => handleOnChange(event.target)}
-        value={value}
+        onChange={(event) => {
+          handleOnChange(event.target);
+          setValueInput(event.target.value)
+
+        }}
+        value={valueInput}
       />
     </Container>
   )

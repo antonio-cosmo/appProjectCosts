@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { LinkButton } from '../../components/layout/LinkButton'
+import { Loading } from '../../components/layout/Loading'
 import { Message } from '../../components/layout/Message'
-import ProjectCard from '../../components/ProjectCard'
+import {ProjectCard} from '../../components/ProjectCard'
+import { Api } from '../../services/api'
 import { Content } from '../../styles/Content'
-import { Div } from './style'
+import { Container } from './style'
 
 type Project = {
   id:string
@@ -20,6 +22,7 @@ type Project = {
 export function Projects() {
 
   const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
   const location = useLocation()
   let message = ''
   if (typeof location.state === 'string') {
@@ -27,20 +30,24 @@ export function Projects() {
   }
 
   useEffect(()=>{
-    fetch("http://localhost:5000/projects", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res)=>{
-      return res.json()
-    }).then(data => setProjects(data))
+    setTimeout(()=>{
+      Api.get('projects').then(res => {
+        setProjects(res.data)
+        setLoading(false)
+      })
+    }, 300)
   },[])
 
-  console.log(projects)
+  const handleRemoveProject = async (id:string) => {
+    await Api.delete(`projects/${id}`);
+    const newProjects = projects.filter(project => project.id !== id)
+    setProjects(newProjects)
+    
+  }
+
 
   return (
-    <Div>
+    <Container>
       <div className='title'>
         <h1>Meus Projetos</h1>
         <LinkButton 
@@ -58,10 +65,13 @@ export function Projects() {
               budget={project.budget}
               category={project.category.name}
               key={project.id}
+              handleRemoveProject = {handleRemoveProject }
             />
           ))}
+        {loading && <Loading/>}
+        {!loading && projects.length === 0 &&  <p>Não ha projetos cadastrados</p>}
       </Content>
-    </Div>
+    </Container>
 
   )
 }

@@ -1,3 +1,4 @@
+
 import {Button} from './style';
 
 type SubmitButtonProps = {
@@ -5,6 +6,7 @@ type SubmitButtonProps = {
 }
 
 export function SubmitButton({ text }:SubmitButtonProps) {
+  
   return (
     <div>
       <Button>{text}</Button>

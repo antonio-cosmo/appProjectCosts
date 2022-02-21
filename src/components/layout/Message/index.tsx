@@ -18,7 +18,7 @@ export function Message({type, msg}:MessageProps){
 
     const timer = setTimeout(() => {
       setVisible(false)
-    }, 2000)
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [msg])

@@ -1,43 +1,36 @@
 import { useNavigate} from 'react-router-dom';
 import { ProjectForm } from '../../components/ProjectForm';
+import { Api } from '../../services/api';
 import {Container} from './style';
 
 type Project = {
   cost:number,
-  services:string[],
+  services:Service[],
   name:string,
-  value:string,
+  budget:string,
   category:{
     id:string,
     name:string,
   },
 }
 
+type Service ={
+  id:string, 
+  name:string, 
+  cost:string, 
+  description:string, 
+}
+
 export function NewProject() {
 
   const navigate = useNavigate();
 
-  const handleCreatePost = (project:Project) => {
-
+  const handleCreatePost = async (project:Project) => {
     project.cost = 0;
     project.services = [];
+    await Api.post('projects', project)
+    navigate('/projects', {state:'Projeto criado com sucesso'});
 
-    fetch("http://localhost:5000/projects",{
-      method:'POST',
-      headers:{
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(project),
-    }).then(
-      res => res.json()
-    ).then(
-      (data) => {
-        console.log(data);
-        navigate('/projects', {state:'Projeto criado com sucesso'});
-      }
-    ).catch(
-      e => console.log('error')
-    )
   }
 
   return (
@@ -46,7 +39,7 @@ export function NewProject() {
       <p>Crie seu projeto para depois adicionar os serviços</p>
       <ProjectForm 
         btnText="Criar projeto"  
-        handleCreatePost={handleCreatePost}
+        handleSubmit={handleCreatePost}
       />
     </Container>
   )

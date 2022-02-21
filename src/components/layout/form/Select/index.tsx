@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Container } from './style';
 
 type InputProps = {
@@ -15,6 +15,8 @@ type Option = {
 }
 
 export function Select({ text, name, options, handleOnChange, value }: InputProps) {
+  const [valueSelect, setValueSelect] = useState(value)
+
   return (
     <Container>
       <label htmlFor={name}>
@@ -23,8 +25,11 @@ export function Select({ text, name, options, handleOnChange, value }: InputProp
       <select
         name={name}
         id={name}
-        onChange={(event) => handleOnChange(event.target)}
-        value={value || ''}
+        onChange={(event) => {
+          handleOnChange(event.target)
+          setValueSelect(event.target.value)
+        }}
+        value={valueSelect}
       >
         <option>Selecione uma opção</option>
         {options.map(option => <option key={option.id} value={option.id}>{option.name}</option>)}
