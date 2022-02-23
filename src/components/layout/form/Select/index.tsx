@@ -15,7 +15,10 @@ type Option = {
 }
 
 export function Select({ text, name, options, handleOnChange, value }: InputProps) {
-  const [valueSelect, setValueSelect] = useState(value)
+  // const [valueSelect, setValueSelect] = useState(() => {
+  //   if(value) return value
+  //   return ''
+  // })
 
   return (
     <Container>
@@ -27,9 +30,9 @@ export function Select({ text, name, options, handleOnChange, value }: InputProp
         id={name}
         onChange={(event) => {
           handleOnChange(event.target)
-          setValueSelect(event.target.value)
+          // setValueSelect(event.target.value)
         }}
-        value={valueSelect}
+        value={value || ''}
       >
         <option>Selecione uma opção</option>
         {options.map(option => <option key={option.id} value={option.id}>{option.name}</option>)}
