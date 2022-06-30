@@ -15,10 +15,6 @@ type Option = {
 }
 
 export function Select({ text, name, options, handleOnChange, value }: InputProps) {
-  // const [valueSelect, setValueSelect] = useState(() => {
-  //   if(value) return value
-  //   return ''
-  // })
 
   return (
     <Container>

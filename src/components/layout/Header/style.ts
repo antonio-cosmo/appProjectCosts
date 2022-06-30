@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #222;
+  background: var(--green-900);
+  position: fixed ;
+  left: 0 ;
+  right: 0 ;
+  top: 0 ;
 `;
 export const NavBar = styled.nav`
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: 2rem;
 
   a{
     text-decoration: none;
@@ -36,11 +40,12 @@ export const NavBar = styled.nav`
   }
   
   li{
-    margin-right: 1em;
+    margin-right: 1rem;
 
     a{
       color: #fff;
       text-decoration: none;
+      font-size: 1.2rem;
     }
 
     a:hover{

@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 24%;
   margin: 0.5%;
   h4 {
-    background-color: #222;
+    background-color: var(--green-900);
     color: #ffbb33;
     padding: 0.4em;
     margin-bottom: 1.3em;

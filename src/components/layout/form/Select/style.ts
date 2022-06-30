@@ -8,6 +8,7 @@ export const Container =styled.div`
   label{
     margin-bottom: .6em;
     font-weight: bold;
+    color: var(--text-title);
   }
 
   select{

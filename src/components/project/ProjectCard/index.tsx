@@ -5,7 +5,7 @@ import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
 type ProjectCard = {
   id:string;
   name:string;
-  budget:string;
+  budget:number;
   category:string;
   handleRemoveProject: (id: string) => Promise<void>;
 }

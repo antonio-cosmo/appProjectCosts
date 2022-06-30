@@ -1,6 +1,7 @@
+import {Project, Service} from '../../../types'
 import { FormEvent, useState } from 'react'
-import {Input} from '../layout/form/Input'
-import {SubmitButton} from '../layout/form/SubmitButton'
+import {Input} from '../../layout/form/Input'
+import {SubmitButton} from '../../layout/form/SubmitButton'
 
 import {Form} from './styles'
 
@@ -10,31 +11,17 @@ type ServicetFormProps = {
   projectData?: Project,
 }
 
-type Project = {
-  id: string
-  cost: number,
-  services: Service[],
-  name: string,
-  budget: string,
-  category: {
-    id: string,
-    name: string,
-  },
-}
-
-type Service ={
-  id:string, 
-  name:string, 
-  cost:string, 
-  description:string, 
-}
 export function ServiceForm({ handleSubmit, btnText, projectData }: ServicetFormProps) {
   const [service, setService] = useState<Service>({} as Service)
 
   const submit = (el:FormEvent) => {
     el.preventDefault()
     if(!projectData) return 
-    projectData.services.push(service)
+    if(!service.cost) return
+    if(Number(service.cost) < 0) return
+    const updateService = {...service, cost: Number(service.cost)}
+    
+    projectData.services.push(updateService)
     handleSubmit(projectData)
   }
 

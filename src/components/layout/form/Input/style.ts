@@ -8,6 +8,7 @@ export const Container =styled.div`
   label{
     margin-bottom: .6em;
     font-weight: bold;
+    color: var(--text-title);
   }
 
   input{
@@ -16,7 +17,7 @@ export const Container =styled.div`
     border: none;
 
     &::placeholder{
-      color: #7b7b7b;
+      color: var(--text-body);
     }
   }
 `

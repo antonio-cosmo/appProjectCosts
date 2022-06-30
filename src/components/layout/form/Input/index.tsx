@@ -7,26 +7,10 @@ type InputProps = {
   name: string,
   placeholder: string,
   handleOnChange: (e: HTMLInputElement) => void,
-  value: string,
+  value: string | number,
 }
 
 export function Input({ type, text, name, placeholder, handleOnChange, value}: InputProps) {
-//  const [valueInput, setValueInput] = useState(() => {
-//    if(value) return value
-//    return ''
-//  })
-//  const [typeInput, setTypeInput] = useState(type)
-//  const [nameInput, setNameInput] = useState(name)
-//  const [placeholdercInput, setPlaceholderInput] = useState(placeholder)
-//  const [textInput, setTextInput] = useState(text)
-
-// useEffect(()=>{
-//   setValueInput(value)
-//   setTypeInput(type)
-//   setNameInput(name)
-//   setPlaceholderInput(placeholder)
-//   setTextInput(text)
-// })
 
   return (
     <Container>
@@ -40,10 +24,9 @@ export function Input({ type, text, name, placeholder, handleOnChange, value}: I
         placeholder={placeholder}
         onChange={(event) => {
           handleOnChange(event.target);
-          // setValueInput(event.target.value)
-
         }}
         value={value || ''}
+        autoComplete='off'
       />
     </Container>
   )

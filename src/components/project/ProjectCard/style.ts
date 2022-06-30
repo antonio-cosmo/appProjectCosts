@@ -7,15 +7,16 @@ export const Container = styled.div`
   width: 24%;
   margin: 0.5%;
   h4 {
-    background-color: #222;
-    color: #ffbb33;
-    padding: 0.4em;
-    margin-bottom: 1.3em;
-    font-size: 1.3em;
+    background-color: var(--green-900);
+    color: #fff;
+    padding: 0.4rem;
+    margin-bottom: 1.3rem;
+    font-size: 1.3rem;
+
   }
 
   p {
-    color: #7a7a7a;
+    color: var(--text-body);
     margin-bottom: 1em;
 
     span {
@@ -68,12 +69,12 @@ export const Actions = styled.div`
   button {
     text-decoration: none;
     background-color: #fff;
-    color: #222;
+    color: var(--text-body);
     font-size: 0.9em;
     padding: 0.5em 1em;
     margin-top: 5px;
     cursor: pointer;
-    border: 1px solid #222;
+    border: 1px solid #7a7a7a;
     transition: 0.5s;
     display: flex;
     align-items: center;

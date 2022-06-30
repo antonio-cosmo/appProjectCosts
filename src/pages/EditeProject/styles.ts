@@ -1,26 +1,41 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding: 2em;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem;
+  margin-top: 8rem;
   h1,
   h2,
   p {
     margin-bottom: 0.5em;
   }
 
-  h1 {
-    background-color: #222;
-    color: #ffbb33;
-    padding: 0.4em;
+  h2 {
+    color: var(--text-title);
   }
 
-  span {
+  #msg{
+    color: var(--text-body);
     font-weight: bold;
   }
-
 `;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  &.start{
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+  }
+  &.column{
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+`
 
 export const Details = styled.div`
   border-bottom: 1px solid #7a7a7a;
@@ -29,6 +44,15 @@ export const Details = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  h1 {
+    background: var(--green-900);
+    /* color: #ffbb33; */
+    color:#ffbb33;
+    padding: 0.4rem;
+    border-radius: 2px ;
+  }
+
 `;
 
 export const Button = styled.button`
@@ -48,9 +72,15 @@ export const Button = styled.button`
 
 export const Form = styled.div`
   width: 100%;
+  p {
+    color: var(--text-body);
+    span {
+    font-weight: bold;
+  }
+  }
 `
 
-export const Service = styled.div`
+export const Services = styled.div`
 
   border-bottom: 1px solid #7a7a7a;
   padding-bottom: 1.2em;
@@ -58,6 +88,10 @@ export const Service = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  h2 {
+    color: var(--text-title);
+  }
 `
 
 

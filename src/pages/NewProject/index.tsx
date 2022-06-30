@@ -1,25 +1,9 @@
 import { useNavigate} from 'react-router-dom';
-import { ProjectForm } from '../../components/ProjectForm';
+import { Project } from '../../types'
+import { ProjectForm } from '../../components/project/ProjectForm';
 import { Api } from '../../services/api';
 import {Container} from './style';
-
-type Project = {
-  cost:number,
-  services:Service[],
-  name:string,
-  budget:string,
-  category:{
-    id:string,
-    name:string,
-  },
-}
-
-type Service ={
-  id:string, 
-  name:string, 
-  cost:string, 
-  description:string, 
-}
+import { toast } from 'react-toastify';
 
 export function NewProject() {
 
@@ -28,7 +12,10 @@ export function NewProject() {
   const handleCreatePost = async (project:Project) => {
     project.cost = 0;
     project.services = [];
+    project.budget = Number(project.budget)
+    if(project.budget <= 0) return
     await Api.post('projects', project)
+    toast.success('Criado com sucesso!');
     navigate('/projects', {state:'Projeto criado com sucesso'});
 
   }

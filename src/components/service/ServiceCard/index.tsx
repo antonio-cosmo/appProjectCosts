@@ -6,9 +6,9 @@ import {Container, Actions} from './styles'
 type ServiceCardProps ={
   id:string, 
   name:string, 
-  cost:string, 
+  cost:number, 
   description:string, 
-  handleRemove:(id:string, cost:string) => void 
+  handleRemove:(id:string, cost:number) => void 
 }
 
 export function ServiceCard({id, name, cost, description, handleRemove }:ServiceCardProps) {

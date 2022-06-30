@@ -14,7 +14,7 @@ export function Footer() {
             <FaLinkedin />
           </li>
         </ul>
-        <p><span>Costs</span> &copy; 2022 </p>
+        <p><span>Coins</span> &copy; 2022 </p>
       </Container>
   )
 }

@@ -1,24 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Project} from '../../types'
 import { LinkButton } from '../../components/layout/LinkButton'
 import { Loading } from '../../components/layout/Loading'
 import { Message } from '../../components/layout/Message'
-import {ProjectCard} from '../../components/ProjectCard'
+import {ProjectCard} from '../../components/project/ProjectCard'
 import { Api } from '../../services/api'
 import { Content } from '../../styles/Content'
 import { Container } from './style'
 
-type Project = {
-  id:string
-  cost: number,
-  services: string[],
-  name: string,
-  budget: string,
-  category: {
-    id: string,
-    name: string,
-  },
-}
 export function Projects() {
 
   const [projects, setProjects] = useState<Project[]>([])
@@ -55,7 +45,7 @@ export function Projects() {
           text="Novo projeto"
         />
       </div>
-      {message && <Message type="success" msg={message} />}
+      {/* {message && <Message type="success" msg={message} />} */}
       <Content className='start'>
       {projects.length > 0 &&
           projects.map((project) => (
